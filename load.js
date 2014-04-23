@@ -21,14 +21,17 @@
 			callback = function(){};
 		}
 		for (var i=0; i<max; i++) { src = arguments[i];
-			if (loaded[src]) return onload.call({src:src});
-			loaded[src]   = false;
-			script        = document.createElement('script');
-			script.setAttribute('async', '');
-			script.type   = 'text/javascript';
-			script.onload = onload.bind(script);
-			script.src    = src;
-			document.getElementsByTagName('head')[0].appendChild(script);
+			if (loaded[src])
+				onload.call({src:src});
+			else {
+				loaded[src]   = false;
+				script        = document.createElement('script');
+				script.setAttribute('async', '');
+				script.type   = 'text/javascript';
+				script.onload = onload.bind(script);
+				script.src    = src;
+				document.getElementsByTagName('head')[0].appendChild(script);
+			}
 		}
 		function onload() {
 			loaded[this.src] = true;
