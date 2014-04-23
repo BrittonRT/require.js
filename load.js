@@ -3,8 +3,8 @@
 **
 **  Dependencies: none
 */
-;load = (function(window, document) {
-	'use strict';
+;'use strict';
+load = (function(window, document) {
 	/* -- VARIABLES -- */
 	var loaded = {};
 	/* -- RETURN -- */
