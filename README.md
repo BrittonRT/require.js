@@ -1,4 +1,4 @@
-load.js
+require.js
 =======
 
 A very simple script loader. Handles asynchronous downloads and dependencies in modern browsers.
@@ -6,18 +6,18 @@ A very simple script loader. Handles asynchronous downloads and dependencies in 
 Scripts are loaded asynchronously in batches and a callback is fired when all scripts have loaded and executed. Execution order is not guarunteed within a batch but loads can be chains via the callbacks to satisfy dependancies. This is never as fast as just including the scripts in the markup directly, but allows you to lazy load scripts on demand.
 
 <pre>
-load(
+require(
 	'Class.js',
 	'Node.fragment.js',
 
 	function() {
 
-		load(	
+		require(	
 			'Service.js',
 
 			function() {
 
-				load(
+				require(
 					'Node.append.js',
 					'Service.Socket.js',
 					'Service.Worker.js',
